@@ -11,7 +11,7 @@ export default function HomePage() {
     setIsRevealed(true);
     setTimeout(() => {
       if (regulationRef.current) {
-        const offset = 90;
+        const offset = 80;
         const bodyRect = document.body.getBoundingClientRect().top;
         const elementRect = regulationRef.current.getBoundingClientRect().top;
         const elementPosition = elementRect - bodyRect;
@@ -28,7 +28,7 @@ export default function HomePage() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
   return (
-    <div className="relative min-h-screen bg-[#07090e] text-slate-100 font-sans selection:bg-[#FFB800] selection:text-black antialiased">
+    <div className="relative min-h-screen bg-[#07090e] text-slate-100 font-sans selection:bg-[#FFB800] selection:text-black antialiased flex flex-col justify-between">
       {/* 1. Header / Navbar */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#07090e]/80 backdrop-blur-md border-b border-white/[0.05]">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
@@ -110,8 +110,8 @@ export default function HomePage() {
         )}
       </header>
 
-      {/* 2. Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20 pb-16 overflow-hidden">
+      {/* 2. Hero Section (Always visible) */}
+      <section className="relative min-h-[90vh] md:min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
         {/* Hero Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
@@ -177,7 +177,7 @@ export default function HomePage() {
             />
           </div>
 
-          <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-20 space-y-10">
+          <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16 space-y-10">
             {/* Regulatory Overview label */}
             <div className="space-y-1">
               <div className="text-[#FFB800] text-[11px] font-semibold tracking-[0.18em] uppercase">
@@ -371,69 +371,71 @@ export default function HomePage() {
                 </div>
               </div>
             </section>
-
-            {/* 5. Footer */}
-            <footer className="pt-6 space-y-8">
-              {/* Main Footer Info */}
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                {/* Column 1: Company Logo & Blurb */}
-                <div className="md:col-span-2 space-y-3">
-                  <img 
-                    src={`${basePath}/images/logo.png`} 
-                    alt="JetaFX" 
-                    className="h-7 w-auto object-contain" 
-                  />
-                  <p className="text-[12px] sm:text-[13px] text-[#64748b] leading-relaxed max-w-md font-normal">
-                    We've proudly served over 15,000 satisfied clients across 80 countries. Connect now with our helpful team 24/7 to open your secure account in minutes.
-                  </p>
-                </div>
-
-                {/* Column 2: Markets */}
-                <div className="space-y-2.5">
-                  <h4 className="text-[13px] font-semibold text-white tracking-wide">
-                    Markets
-                  </h4>
-                  <ul className="space-y-1.5 text-[12px] sm:text-[13px] text-[#9ca3af]">
-                    <li><a href="#" className="hover:text-white transition-colors">Forex</a></li>
-                    <li><a href="#" className="hover:text-white transition-colors">Indices</a></li>
-                    <li><a href="#" className="hover:text-white transition-colors">Stocks</a></li>
-                    <li><a href="#" className="hover:text-white transition-colors">Commdities</a></li>
-                    <li><a href="#" className="hover:text-white transition-colors">Exchange Futures</a></li>
-                  </ul>
-                </div>
-
-                {/* Column 3: Company Information */}
-                <div className="space-y-2.5">
-                  <h4 className="text-[13px] font-semibold text-white tracking-wide">
-                    Company Information
-                  </h4>
-                  <p className="text-[12px] sm:text-[13px] text-[#9ca3af] leading-relaxed">
-                    Office No. 5, Sea Grape Avenue, Rodney Bay, Gros-Islet, Saint Lucia
-                  </p>
-                </div>
-              </div>
-
-              {/* Disclaimers & Risk Warning */}
-              <div className="pt-6 border-t border-white/[0.06] space-y-3 text-[10px] leading-relaxed text-[#64748b]">
-                <p>
-                  <strong className="text-[#9ca3af] font-medium">Disclaimer:</strong> Jeta FX LTD is a company registered in Saint Lucia with registered address Ground Floor, The Sotheby Building, Rodney Village, Rodney Bay, Gros-Islet, Saint Lucia.
-                </p>
-                <p>
-                  <strong className="text-[#9ca3af] font-medium">Risk Warning:</strong> An Investment In Derivatives May Mean Investors May Lose An Amount Even Greater Than Their Original Investment. Anyone Wishing To Invest In Any Of The Products Mentioned In www.jetafx.com Should Seek Their Own Financial Or Professional Advice. Trading Of Securities, Forex, Stock Market, Commodities, options and futures may not be suitable for everyone and involves the risk of losing part or all of your money. Trading in the financial markets has large potential rewards but also large potential risks. You Must Be Aware Of The Risks And Be Willing To Accept Them In Order To Invest In The Markets. Don't Invest And Trade With Money Which You Can't Afford To Lose. Forex trading is not allowed in some countries. Before Investing Your Money, make sure whether your country is allowing this or not. You Are Strongly Advised To Obtain Independent Financial, Legal And Tax Advice Before Proceeding With Any Currency Or Spot Metals Trade. Nothing In This Site Should Be Read Or Construed As Constituting Advice On The Part Of Jeta FX LTD Or Any Of Its Affiliates, Directors, Officers Or Employees.
-                </p>
-                <p>
-                  <strong className="text-[#9ca3af] font-medium">Restricted Regions:</strong> Jeta FX LTD Does Not Provide Services For Citizens/Residents Of The United States, Cuba, Iraq, Myanmar, North Korea, Sudan, Russia and Iran. The Services Of Jeta FX LTDAre Not Intended For Distribution To, Or Use By, Any Person In Any Country Or Jurisdiction Where Such Distribution Or Use Would Be Contrary To Local Law Or Regulation.
-                </p>
-              </div>
-
-              {/* Copyright */}
-              <div className="pt-2 pb-6 text-center text-[11px] text-[#64748b]">
-                Copyright © 2025 Jetafx. All rights reserved.
-              </div>
-            </footer>
           </div>
         </main>
       )}
+
+      {/* 5. Footer (Always visible on initial load and after reveal) */}
+      <footer className="relative z-10 border-t border-white/[0.06] bg-[#07090e]">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-10 space-y-8">
+          {/* Main Footer Info */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {/* Column 1: Company Logo & Blurb */}
+            <div className="md:col-span-2 space-y-3">
+              <img 
+                src={`${basePath}/images/logo.png`} 
+                alt="JetaFX" 
+                className="h-7 w-auto object-contain" 
+              />
+              <p className="text-[12px] sm:text-[13px] text-[#64748b] leading-relaxed max-w-md font-normal">
+                We've proudly served over 15,000 satisfied clients across 80 countries. Connect now with our helpful team 24/7 to open your secure account in minutes.
+              </p>
+            </div>
+
+            {/* Column 2: Markets */}
+            <div className="space-y-2.5">
+              <h4 className="text-[13px] font-semibold text-white tracking-wide">
+                Markets
+              </h4>
+              <ul className="space-y-1.5 text-[12px] sm:text-[13px] text-[#9ca3af]">
+                <li><a href="#" className="hover:text-white transition-colors">Forex</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Indices</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Stocks</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Commdities</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Exchange Futures</a></li>
+              </ul>
+            </div>
+
+            {/* Column 3: Company Information */}
+            <div className="space-y-2.5">
+              <h4 className="text-[13px] font-semibold text-white tracking-wide">
+                Company Information
+              </h4>
+              <p className="text-[12px] sm:text-[13px] text-[#9ca3af] leading-relaxed">
+                Office No. 5, Sea Grape Avenue, Rodney Bay, Gros-Islet, Saint Lucia
+              </p>
+            </div>
+          </div>
+
+          {/* Disclaimers & Risk Warning */}
+          <div className="pt-6 border-t border-white/[0.06] space-y-3 text-[10px] leading-relaxed text-[#64748b]">
+            <p>
+              <strong className="text-[#9ca3af] font-medium">Disclaimer:</strong> Jeta FX LTD is a company registered in Saint Lucia with registered address Ground Floor, The Sotheby Building, Rodney Village, Rodney Bay, Gros-Islet, Saint Lucia.
+            </p>
+            <p>
+              <strong className="text-[#9ca3af] font-medium">Risk Warning:</strong> An Investment In Derivatives May Mean Investors May Lose An Amount Even Greater Than Their Original Investment. Anyone Wishing To Invest In Any Of The Products Mentioned In www.jetafx.com Should Seek Their Own Financial Or Professional Advice. Trading Of Securities, Forex, Stock Market, Commodities, options and futures may not be suitable for everyone and involves the risk of losing part or all of your money. Trading in the financial markets has large potential rewards but also large potential risks. You Must Be Aware Of The Risks And Be Willing To Accept Them In Order To Invest In The Markets. Don't Invest And Trade With Money Which You Can't Afford To Lose. Forex trading is not allowed in some countries. Before Investing Your Money, make sure whether your country is allowing this or not. You Are Strongly Advised To Obtain Independent Financial, Legal And Tax Advice Before Proceeding With Any Currency Or Spot Metals Trade. Nothing In This Site Should Be Read Or Construed As Constituting Advice On The Part Of Jeta FX LTD Or Any Of Its Affiliates, Directors, Officers Or Employees.
+            </p>
+            <p>
+              <strong className="text-[#9ca3af] font-medium">Restricted Regions:</strong> Jeta FX LTD Does Not Provide Services For Citizens/Residents Of The United States, Cuba, Iraq, Myanmar, North Korea, Sudan, Russia and Iran. The Services Of Jeta FX LTDAre Not Intended For Distribution To, Or Use By, Any Person In Any Country Or Jurisdiction Where Such Distribution Or Use Would Be Contrary To Local Law Or Regulation.
+            </p>
+          </div>
+
+          {/* Copyright */}
+          <div className="pt-2 pb-2 text-center text-[11px] text-[#64748b]">
+            Copyright © 2025 Jetafx. All rights reserved.
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
